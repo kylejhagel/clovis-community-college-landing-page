@@ -2,7 +2,23 @@
     const toastElement = document.getElementById('careerInfoToast');
     const careerButtons = document.querySelectorAll('.career-card__learn-more');
 
-    if (!toastElement || careerButtons.length === 0 || typeof bootstrap === 'undefined') {
+    if (careerButtons.length === 0) {
+        return;
+    }
+
+    careerButtons.forEach((button) => {
+        const careerCard = button.closest('.career-card');
+        const careerTitle = careerCard?.querySelector('h3.card-title')?.textContent.trim();
+
+        if (careerTitle && !button.querySelector('.visually-hidden')) {
+            const accessibleContext = document.createElement('span');
+            accessibleContext.className = 'visually-hidden';
+            accessibleContext.textContent = ` about ${careerTitle} program`;
+            button.appendChild(accessibleContext);
+        }
+    });
+
+    if (!toastElement || typeof bootstrap === 'undefined') {
         return;
     }
 
