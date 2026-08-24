@@ -8,16 +8,17 @@ This branch contains the initial page foundation and header/navigation work only
 
 Included in this iteration:
 
-- Bootstrap 5.3.3 CSS
+- Bootstrap 5.3.3 CSS and JavaScript bundle
 - Semantic `header`, `nav`, and `main` landmarks
 - Skip-to-main-content link
 - Responsive Clovis Community College logo treatment
-- Primary `Apply Here` action
-- Responsive Bootstrap container and utility classes
+- Desktop audience navigation
+- Primary navigation
+- Responsive Bootstrap offcanvas navigation for mobile
 - Visible keyboard focus styles
 - Reduced-motion support for animated transitions
 
-The hero, content sections, footer, and any additional interactive Bootstrap components are intentionally deferred to later iterations.
+The hero, content sections, footer, and additional landing-page components are intentionally deferred to later iterations.
 
 ## Responsive Logo Behavior
 
@@ -38,9 +39,12 @@ Current accessibility considerations include:
 - Semantic page landmarks
 - Keyboard-focus indicators with strong foreground/background contrast
 - A distinct focus state for links placed on the Clovis blue navigation background
+- Keyboard-accessible Bootstrap offcanvas navigation
+- Accessible menu open/close controls and labels
 - `prefers-reduced-motion` support for skip-link and logo transitions
 - A focusable `main` landmark so skip-link navigation moves keyboard focus to the page content
 - Meaningful alternative text for the Clovis Community College logo
+- A logical heading hierarchy with one page-level `h1`
 
 The skip link targets:
 
@@ -50,9 +54,28 @@ The skip link targets:
 
 Focus styles are intentionally not removed from the main content target.
 
+### Accessibility Validation and QA
+
+Accessibility and markup are reviewed with both automated tools and manual testing rather than relying on a single scanner.
+
+Current QA workflow:
+
+- **W3C Nu HTML Checker** — HTML and ARIA conformance: https://validator.w3.org/nu/#file
+- **WAVE** — accessibility errors, alerts, structure, and contrast review
+- **Lighthouse** — accessibility and general page-quality checks
+- **Manual keyboard testing** — skip link, focus order, navigation, offcanvas open/close, Escape behavior, and visible focus
+- **Responsive review** — check reflow and navigation behavior at small mobile, tablet, and desktop widths
+
+The W3C Nu HTML Checker identified two issues during development of the Bootstrap offcanvas navigation:
+
+1. `aria-labelledby` had been applied to a generic `<div>` whose computed role did not permit that ARIA attribute. The offcanvas wrapper was changed to a semantic `<nav>` landmark, making the accessible label relationship valid and better describing the region's purpose.
+2. The document contained lower-level headings but no computed level-one heading. A page-level `h1` was added for **Mechatronics Industrial Automation**. The temporary hidden heading will be replaced by the visible hero heading when that section is implemented.
+
+These findings were reviewed manually and corrected in the markup before continuing development.
+
 ## Brand Colors
 
-Current CSS custom properties:
+Current CSS custom properties include:
 
 ```css
 --clovis-primary-color: #025b94;
@@ -101,6 +124,5 @@ The implementation is intentionally assessment-focused:
 - Use Bootstrap components and utilities where they solve the requirement cleanly.
 - Keep custom CSS limited to branding, accessibility, and presentation needs not already handled by Bootstrap.
 - Avoid adding navigation, content, or interaction that is not supported by the assessment requirements.
-- Keep the HTML semantic and understandable without relying on JavaScript.
-
-Bootstrap JavaScript will be added only when an interactive Bootstrap component requires it.
+- Keep the HTML semantic and understandable without relying on JavaScript for core content.
+- Validate HTML and ARIA during development instead of waiting until final QA.
