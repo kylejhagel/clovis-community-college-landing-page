@@ -186,9 +186,17 @@ body {
 .primary-navigation .nav-link:focus,
 .primary-navigation .nav-link:focus-visible,
 .site-header .navbar-brand:focus,
-.site-header .navbar-brand:focus-visible {
+.site-header .navbar-brand:focus-visible,
+.navbar-toggler:focus,
+.navbar-toggler:focus-visible {
     outline: 3px dashed var(--focus-dark);
     outline-offset: 3px;
+}
+
+/* Remove Bootstrap's default toggler focus shadow so the global focus indicator remains clear. */
+.navbar-toggler:focus,
+.navbar-toggler:focus-visible {
+    box-shadow: none;
 }
 
 /* Preserve a visible destination when the skip link moves focus to main. */
