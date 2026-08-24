@@ -1,0 +1,281 @@
+/* Clovis Community College landing page
+   Initial header and navigation styles only. */
+
+:root {
+    --clovis-primary-color: #025b94;
+    --clovis-secondary-color: #95c23d;
+    --light-bg: #f8f9fa;
+    --header-bg: #f4f5f6;
+    --text-dark: #212529;
+    --text-muted: #464b50;
+    --link-hover-light-color: #cee8ff;
+    --focus-dark: #be4e04;
+    --focus-light: #f9d8c8;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* Skip link */
+.skip-link {
+    position: fixed;
+    top: 8px;
+    left: 20%;
+    z-index: 9999;
+    padding: 0.25rem 1rem;
+    color: #fff;
+    background-color: var(--text-dark);
+    border: 3px solid #fff;
+    border-radius: 0.25rem;
+    font-weight: 700;
+    text-decoration: none;
+    transform: translate(-50%, -150%);
+    transition: transform 0.15s ease-in-out;
+}
+
+.skip-link:hover,
+.skip-link:focus,
+.skip-link:focus-visible {
+    color: #000;
+    background-color: #fff;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+    transform: translate(-50%, 0);
+    outline: 3px dashed var(--focus-light);
+    outline-offset: 2px;
+}
+
+/* Header and navigation */
+.site-header {
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+}
+
+.navbar-top-menu {
+    background-color: var(--clovis-primary-color);
+}
+
+.navbar-top-menu .container {
+    min-height: 58px;
+    display: flex;
+    align-items: center;
+}
+
+.top-navbar-nav a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    color: #fff;
+    font-size: 0.95rem;
+    text-decoration: none;
+}
+
+.top-navbar-nav a:hover {
+    color: var(--link-hover-light-color);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+}
+
+.main-navbar {
+    background-color: var(--header-bg);
+    border-bottom: 1px solid #dee2e6;
+}
+
+.main-navbar .container > .d-flex {
+    min-height: 126px;
+}
+
+.site-header .navbar-brand {
+    display: inline-flex;
+    flex: 0 1 460px;
+    align-items: center;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+.site-header .navbar-brand picture {
+    display: block;
+    width: 100%;
+    max-width: 460px;
+}
+
+.navbar-brand-logo {
+    display: block;
+    width: 100%;
+    max-width: 460px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover .navbar-brand-logo {
+    transform: scale(1.025);
+}
+
+.primary-navigation {
+    flex: 0 0 auto;
+    white-space: nowrap;
+}
+
+.primary-navigation .navbar-nav {
+    flex-wrap: nowrap;
+}
+
+.primary-navigation .nav-link {
+    position: relative;
+    padding: 0.5rem 0;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    text-decoration: none;
+}
+
+.primary-navigation .nav-link:hover,
+.primary-navigation .nav-link.active {
+    color: var(--text-dark);
+}
+
+.primary-navigation .nav-link:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.25em;
+}
+
+/* Keyboard focus
+   Apply a consistent visible indicator to elements that can receive keyboard focus. */
+:where(
+    a[href],
+    button,
+    input,
+    select,
+    textarea,
+    summary,
+    [tabindex]:not([tabindex="-1"])
+):focus,
+:where(
+    a[href],
+    button,
+    input,
+    select,
+    textarea,
+    summary,
+    [tabindex]:not([tabindex="-1"])
+):focus-visible {
+    outline: 3px dashed var(--focus-dark);
+    outline-offset: 2px;
+}
+
+/* Maintain a light, high-contrast indicator on the Clovis blue utility bar. */
+.navbar-top-menu a:focus,
+.navbar-top-menu a:focus-visible,
+.navbar-top-menu button:focus,
+.navbar-top-menu button:focus-visible {
+    color: #fff;
+    outline-color: var(--focus-light);
+}
+
+/* Make focus within the main navigation visually distinct from hover alone. */
+.primary-navigation .nav-link:focus,
+.primary-navigation .nav-link:focus-visible,
+.site-header .navbar-brand:focus,
+.site-header .navbar-brand:focus-visible,
+.navbar-toggler:focus,
+.navbar-toggler:focus-visible,
+.btn-close:focus,
+.btn-close:focus-visible {
+    outline: 3px dashed var(--focus-dark);
+    outline-offset: 3px;
+}
+
+/* Remove Bootstrap's default component focus shadows so the global indicator remains clear. */
+.navbar-toggler:focus,
+.navbar-toggler:focus-visible,
+.btn-close:focus,
+.btn-close:focus-visible {
+    box-shadow: none;
+}
+
+/* Preserve a visible destination when the skip link moves focus to main. */
+#main-content:focus,
+#main-content:focus-visible {
+    outline: 3px dashed var(--focus-dark);
+    outline-offset: -3px;
+}
+
+/* Responsive header */
+@media (max-width: 991.98px) {
+    .top-navbar-nav {
+        gap: 1.25rem !important;
+    }
+
+    .site-header .navbar-brand {
+        flex-basis: 360px;
+    }
+
+    .site-header .navbar-brand picture,
+    .navbar-brand-logo {
+        max-width: 360px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .navbar-top-menu {
+        display: none;
+    }
+
+    .main-navbar .container > .d-flex {
+        min-height: auto;
+        padding-top: 1.25rem;
+        padding-bottom: 1.25rem;
+    }
+
+    .site-header .navbar-brand {
+        flex: 0 1 155px;
+        max-width: 155px;
+    }
+
+    .site-header .navbar-brand picture,
+    .navbar-brand-logo {
+        width: 100%;
+        max-width: 155px;
+    }
+
+    .primary-navigation {
+        white-space: normal;
+    }
+
+    .primary-navigation .navbar-nav {
+        row-gap: 0.5rem !important;
+    }
+}
+
+@media (max-width: 420px) {
+    .site-header .navbar-brand {
+        flex-basis: 130px;
+        max-width: 130px;
+    }
+
+    .site-header .navbar-brand picture,
+    .navbar-brand-logo {
+        max-width: 130px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .skip-link,
+    .navbar-brand-logo {
+        transition: none;
+    }
+}
