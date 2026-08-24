@@ -51,7 +51,7 @@ body {
 .skip-link:focus,
 .skip-link:focus-visible {
     transform: translate(-50%, 0);
-    outline: 3px dashed var(--focus-dark);
+    outline: 3px dashed var(--focus-light);
     outline-offset: 2px;
 }
 
