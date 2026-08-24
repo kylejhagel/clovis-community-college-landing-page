@@ -352,6 +352,55 @@ body {
     font-weight: 500;
 }
 
+/* Career outcomes */
+.career-outcomes {
+    background-color: var(--light-bg);
+}
+
+.career-outcomes__intro {
+    max-width: 60ch;
+    margin-bottom: 0;
+    color: var(--text-muted);
+    font-size: 1.05rem;
+}
+
+.career-card {
+    border-color: #d9e0e5;
+}
+
+.career-card .card-body {
+    padding: 1.5rem;
+}
+
+.career-card .card-title {
+    color: var(--text-dark);
+    font-weight: 750;
+    line-height: 1.3;
+}
+
+.career-card .card-text {
+    color: var(--text-muted);
+}
+
+.career-card__learn-more {
+    align-self: flex-start;
+    min-height: 44px;
+    color: #fff;
+    background-color: var(--clovis-primary-color);
+    border-color: var(--clovis-primary-color);
+    font-weight: 700;
+}
+
+.career-card__learn-more:hover {
+    color: #fff;
+    background-color: var(--clovis-primary-dark);
+    border-color: var(--clovis-primary-dark);
+}
+
+#careerInfoToast {
+    max-width: min(22rem, calc(100vw - 2rem));
+}
+
 /* Keyboard focus
    Apply a consistent visible indicator to elements that can receive keyboard focus. */
 :where(
