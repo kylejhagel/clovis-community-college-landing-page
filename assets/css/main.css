@@ -96,21 +96,39 @@ body {
 
 .site-header .navbar-brand {
     display: inline-flex;
+    flex: 0 1 460px;
     align-items: center;
+    min-width: 0;
     margin: 0;
     padding: 0;
     text-decoration: none;
 }
 
+.site-header .navbar-brand picture {
+    display: block;
+    width: 100%;
+    max-width: 460px;
+}
+
 .navbar-brand-logo {
     display: block;
-    width: min(100%, 500px);
+    width: 100%;
+    max-width: 460px;
     height: auto;
     transition: transform 0.3s ease;
 }
 
 .navbar-brand:hover .navbar-brand-logo {
     transform: scale(1.025);
+}
+
+.primary-navigation {
+    flex: 0 0 auto;
+    white-space: nowrap;
+}
+
+.primary-navigation .navbar-nav {
+    flex-wrap: nowrap;
 }
 
 .primary-navigation .nav-link {
@@ -159,8 +177,13 @@ button:focus-visible,
         gap: 1.25rem !important;
     }
 
+    .site-header .navbar-brand {
+        flex-basis: 360px;
+    }
+
+    .site-header .navbar-brand picture,
     .navbar-brand-logo {
-        max-width: 420px;
+        max-width: 360px;
     }
 }
 
@@ -175,13 +198,19 @@ button:focus-visible,
         padding-bottom: 1.25rem;
     }
 
-    .navbar-brand {
+    .site-header .navbar-brand {
+        flex: 0 1 155px;
         max-width: 155px;
     }
 
+    .site-header .navbar-brand picture,
     .navbar-brand-logo {
         width: 100%;
         max-width: 155px;
+    }
+
+    .primary-navigation {
+        white-space: normal;
     }
 
     .primary-navigation .navbar-nav {
@@ -190,10 +219,12 @@ button:focus-visible,
 }
 
 @media (max-width: 420px) {
-    .navbar-brand {
+    .site-header .navbar-brand {
+        flex-basis: 130px;
         max-width: 130px;
     }
 
+    .site-header .navbar-brand picture,
     .navbar-brand-logo {
         max-width: 130px;
     }
