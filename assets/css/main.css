@@ -25,6 +25,30 @@ body {
     line-height: 1.6;
 }
 
+/* Shared section styles */
+.section-spacing {
+    padding-block: clamp(4rem, 8vw, 7rem);
+}
+
+.section-eyebrow {
+    margin-bottom: 0.75rem;
+    color: var(--clovis-primary-color);
+    font-size: 0.875rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    line-height: 1.4;
+    text-transform: uppercase;
+}
+
+.section-title {
+    margin-bottom: 1.5rem;
+    color: var(--text-dark);
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    font-weight: 750;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+}
+
 /* Skip link */
 .skip-link {
     position: fixed;
@@ -241,6 +265,105 @@ body {
     object-position: 46% center;
 }
 
+/* Program overview */
+.program-overview {
+    background-color: #fff;
+}
+
+.program-overview__lead {
+    max-width: 48ch;
+    margin-bottom: 1.25rem;
+    color: var(--text-dark);
+    font-size: clamp(1.2rem, 2vw, 1.45rem);
+    font-weight: 650;
+    line-height: 1.45;
+}
+
+.program-overview__skills {
+    padding: 2rem;
+    background-color: var(--light-bg);
+    border-left: 4px solid var(--clovis-secondary-color);
+    border-radius: 0.25rem;
+}
+
+.program-overview__skills h3 {
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+    font-weight: 700;
+}
+
+.program-overview__list {
+    padding-left: 1.25rem;
+}
+
+.program-overview__list li + li {
+    margin-top: 0.55rem;
+}
+
+.program-facts {
+    overflow: hidden;
+    border: 1px solid #d9e0e5;
+    border-radius: 0.375rem;
+    background-color: #fff;
+}
+
+.program-fact {
+    padding: 1.75rem;
+    text-align: center;
+}
+
+.program-fact + .program-fact {
+    border-left: 1px solid #d9e0e5;
+}
+
+.program-fact__label {
+    margin-bottom: 0.35rem;
+    color: var(--clovis-primary-color);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+}
+
+.program-fact__value {
+    color: var(--text-dark);
+    font-size: clamp(1.15rem, 2vw, 1.4rem);
+    font-weight: 750;
+    line-height: 1.25;
+}
+
+.program-fact__detail {
+    margin-top: 0.4rem;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.program-stat {
+    padding: clamp(2.5rem, 6vw, 4.5rem) 1.5rem;
+    background-color: var(--clovis-primary-color);
+    border-radius: 0.375rem;
+}
+
+.program-stat .section-eyebrow {
+    color: #fff;
+}
+
+.program-stat__value {
+    color: #fff;
+    font-size: clamp(4rem, 10vw, 7rem);
+    font-weight: 800;
+    letter-spacing: -0.05em;
+    line-height: 0.95;
+}
+
+.program-stat__label {
+    margin-top: 0.75rem;
+    color: #fff;
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    font-weight: 650;
+}
+
 /* Keyboard focus
    Apply a consistent visible indicator to elements that can receive keyboard focus. */
 :where(
@@ -380,6 +503,15 @@ body {
 
     .hero__image {
         aspect-ratio: 4 / 3;
+    }
+
+    .program-fact {
+        text-align: left;
+    }
+
+    .program-fact + .program-fact {
+        border-top: 1px solid #d9e0e5;
+        border-left: 0;
     }
 }
 
