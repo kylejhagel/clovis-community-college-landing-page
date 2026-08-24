@@ -49,47 +49,63 @@
                     <button
                         class="navbar-toggler"
                         type="button"
-                        data-bs-toggle="collapse"
+                        data-bs-toggle="offcanvas"
                         data-bs-target="#primaryNavigation"
                         aria-controls="primaryNavigation"
-                        aria-expanded="false"
-                        aria-label="Toggle navigation"
+                        aria-label="Open navigation menu"
                     >
                         <span class="navbar-toggler-icon" aria-hidden="true"></span>
                     </button>
 
-                    <div class="collapse navbar-collapse primary-navigation" id="primaryNavigation">
-                        <ul class="navbar-nav ms-md-auto align-items-md-center gap-md-3 gap-lg-4">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#main-content">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#about">About</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#programs">Programs</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#contact">Contact</a>
-                            </li>
-                        </ul>
+                    <div
+                        class="offcanvas offcanvas-end primary-navigation"
+                        tabindex="-1"
+                        id="primaryNavigation"
+                        aria-labelledby="primaryNavigationLabel"
+                    >
+                        <div class="offcanvas-header d-md-none">
+                            <h2 class="offcanvas-title h5 mb-0" id="primaryNavigationLabel">Menu</h2>
+                            <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="offcanvas"
+                                aria-label="Close navigation menu"
+                            ></button>
+                        </div>
 
-                        <div class="mobile-audience-navigation d-md-none mt-3 pt-3 border-top">
-                            <p class="visually-hidden" id="mobile-audience-navigation-label">Audience navigation</p>
-                            <ul class="navbar-nav" aria-labelledby="mobile-audience-navigation-label">
+                        <div class="offcanvas-body align-items-md-center">
+                            <ul class="navbar-nav ms-md-auto align-items-md-center gap-md-3 gap-lg-4">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#future-students">Future Students</a>
+                                    <a class="nav-link active" aria-current="page" href="#main-content">Home</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#current-students">Current Students</a>
+                                    <a class="nav-link" href="#about">About</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#faculty-staff">Faculty and Staff</a>
+                                    <a class="nav-link" href="#programs">Programs</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#alumni-community">Alumni and Community</a>
+                                    <a class="nav-link" href="#contact">Contact</a>
                                 </li>
                             </ul>
+
+                            <div class="mobile-audience-navigation d-md-none mt-4 pt-3 border-top">
+                                <h3 class="h6">Audience links</h3>
+                                <ul class="navbar-nav">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#future-students">Future Students</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#current-students">Current Students</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#faculty-staff">Faculty and Staff</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#alumni-community">Alumni and Community</a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
