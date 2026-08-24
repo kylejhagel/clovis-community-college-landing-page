@@ -5,6 +5,7 @@
     --clovis-primary-color: #025b94;
     --clovis-secondary-color: #95c23d;
     --light-bg: #f8f9fa;
+    --header-bg: #f4f5f6;
     --text-dark: #212529;
     --text-muted: #464b50;
     --link-hover-light-color: #cee8ff;
@@ -55,14 +56,49 @@ body {
 }
 
 /* Header and navigation */
-.navbar {
+.site-header {
     box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+}
+
+.navbar-top-menu {
+    background-color: var(--clovis-primary-color);
+}
+
+.navbar-top-menu .container {
+    min-height: 58px;
+    display: flex;
+    align-items: center;
+}
+
+.top-navbar-nav a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    color: #fff;
+    font-size: 0.95rem;
+    text-decoration: none;
+}
+
+.top-navbar-nav a:hover {
+    color: var(--link-hover-light-color);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+}
+
+.main-navbar {
+    background-color: var(--header-bg);
+    border-bottom: 1px solid #dee2e6;
+}
+
+.main-navbar .container > .d-flex {
+    min-height: 126px;
 }
 
 .site-header .navbar-brand {
     display: inline-flex;
     align-items: center;
     margin: 0;
+    padding: 0;
     text-decoration: none;
 }
 
@@ -77,13 +113,22 @@ body {
     transform: scale(1.025);
 }
 
-.btn-primary {
-    --bs-btn-bg: var(--clovis-primary-color);
-    --bs-btn-border-color: var(--clovis-primary-color);
-    --bs-btn-hover-bg: #014b7a;
-    --bs-btn-hover-border-color: #014b7a;
-    --bs-btn-active-bg: #01436d;
-    --bs-btn-active-border-color: #01436d;
+.primary-navigation .nav-link {
+    position: relative;
+    padding: 0.5rem 0;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    text-decoration: none;
+}
+
+.primary-navigation .nav-link:hover,
+.primary-navigation .nav-link.active {
+    color: var(--text-dark);
+}
+
+.primary-navigation .nav-link:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.25em;
 }
 
 /* Keyboard focus */
@@ -97,23 +142,39 @@ button:focus-visible,
     outline-offset: 2px;
 }
 
-/* Light focus ring for links placed on the Clovis blue background. */
 .navbar-top-menu a:focus,
-.navbar-top-menu a:focus-visible,
-.top-navbar-nav a:focus,
-.top-navbar-nav a:focus-visible {
+.navbar-top-menu a:focus-visible {
     outline-color: var(--focus-light);
 }
 
-/* Preserve a visible focus target when a skip link moves focus to main. */
 #main-content:focus,
 #main-content:focus-visible {
     outline: 3px dashed var(--focus-dark);
     outline-offset: -3px;
 }
 
-/* Use the stacked Clovis logo on smaller screens. */
+/* Responsive header */
+@media (max-width: 991.98px) {
+    .top-navbar-nav {
+        gap: 1.25rem !important;
+    }
+
+    .navbar-brand-logo {
+        max-width: 420px;
+    }
+}
+
 @media (max-width: 767.98px) {
+    .navbar-top-menu {
+        display: none;
+    }
+
+    .main-navbar .container > .d-flex {
+        min-height: auto;
+        padding-top: 1.25rem;
+        padding-bottom: 1.25rem;
+    }
+
     .navbar-brand {
         max-width: 155px;
     }
@@ -121,6 +182,10 @@ button:focus-visible,
     .navbar-brand-logo {
         width: 100%;
         max-width: 155px;
+    }
+
+    .primary-navigation .navbar-nav {
+        row-gap: 0.5rem !important;
     }
 }
 
