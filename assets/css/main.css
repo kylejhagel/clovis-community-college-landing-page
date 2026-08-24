@@ -224,6 +224,16 @@ body {
     border-color: var(--clovis-primary-dark);
 }
 
+.hero__cta:focus,
+.hero__cta:focus-visible {
+    color: #fff;
+    background-color: var(--clovis-primary-color);
+    border-color: var(--clovis-primary-color);
+    outline: 3px dashed var(--focus-dark);
+    outline-offset: 3px;
+    box-shadow: none;
+}
+
 .hero__image {
     display: block;
     width: 100%;
