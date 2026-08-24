@@ -51,8 +51,8 @@ body {
 .skip-link:focus,
 .skip-link:focus-visible {
     transform: translate(-50%, 0);
-    outline: 3px dashed var(--focus-light);
-    outline-offset: 1px;
+    outline: 3px dashed var(--focus-dark);
+    outline-offset: 2px;
 }
 
 /* Header and navigation */
@@ -149,22 +149,49 @@ body {
     text-underline-offset: 0.25em;
 }
 
-/* Keyboard focus */
-body a:focus,
-body a:focus-visible,
-button:focus,
-button:focus-visible,
-.btn:focus,
-.btn:focus-visible {
+/* Keyboard focus
+   Apply a consistent visible indicator to elements that can receive keyboard focus. */
+:where(
+    a[href],
+    button,
+    input,
+    select,
+    textarea,
+    summary,
+    [tabindex]:not([tabindex="-1"])
+):focus,
+:where(
+    a[href],
+    button,
+    input,
+    select,
+    textarea,
+    summary,
+    [tabindex]:not([tabindex="-1"])
+):focus-visible {
     outline: 3px dashed var(--focus-dark);
     outline-offset: 2px;
 }
 
+/* Maintain a light, high-contrast indicator on the Clovis blue utility bar. */
 .navbar-top-menu a:focus,
-.navbar-top-menu a:focus-visible {
+.navbar-top-menu a:focus-visible,
+.navbar-top-menu button:focus,
+.navbar-top-menu button:focus-visible {
+    color: #fff;
     outline-color: var(--focus-light);
 }
 
+/* Make focus within the main navigation visually distinct from hover alone. */
+.primary-navigation .nav-link:focus,
+.primary-navigation .nav-link:focus-visible,
+.site-header .navbar-brand:focus,
+.site-header .navbar-brand:focus-visible {
+    outline: 3px dashed var(--focus-dark);
+    outline-offset: 3px;
+}
+
+/* Preserve a visible destination when the skip link moves focus to main. */
 #main-content:focus,
 #main-content:focus-visible {
     outline: 3px dashed var(--focus-dark);
