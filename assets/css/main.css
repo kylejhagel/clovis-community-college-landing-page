@@ -397,6 +397,16 @@ body {
     border-color: var(--clovis-primary-dark);
 }
 
+.career-card__learn-more:focus,
+.career-card__learn-more:focus-visible {
+    color: #fff;
+    background-color: var(--clovis-primary-color);
+    border-color: var(--clovis-primary-color);
+    outline: 3px dashed var(--focus-dark);
+    outline-offset: 3px;
+    box-shadow: none;
+}
+
 #careerInfoToast {
     max-width: min(22rem, calc(100vw - 2rem));
 }
