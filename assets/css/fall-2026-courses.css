@@ -1,0 +1,128 @@
+/* Fall 2026 course section styles. */
+
+.fall-courses {
+    background-color: #fff;
+}
+
+.fall-courses__intro {
+    max-width: 62ch;
+    margin-bottom: 0;
+    color: var(--text-muted);
+    font-size: 1.05rem;
+}
+
+.fall-courses__accordion {
+    --bs-accordion-border-color: #d9e0e5;
+    --bs-accordion-btn-focus-box-shadow: none;
+    --bs-accordion-active-color: var(--text-dark);
+    --bs-accordion-active-bg: var(--light-bg);
+}
+
+.fall-courses__accordion .accordion-button {
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    color: var(--text-dark);
+    font-weight: 700;
+}
+
+.fall-courses__accordion .accordion-button:not(.collapsed) {
+    box-shadow: inset 4px 0 0 var(--clovis-secondary-color);
+}
+
+.fall-courses__accordion .accordion-button:focus,
+.fall-courses__accordion .accordion-button:focus-visible {
+    outline: 3px dashed var(--focus-dark);
+    outline-offset: -3px;
+    box-shadow: none;
+}
+
+.fall-courses__code {
+    flex: 0 0 auto;
+    color: var(--clovis-primary-color);
+    font-weight: 800;
+}
+
+.fall-courses__name {
+    min-width: 0;
+    flex: 1 1 auto;
+}
+
+.fall-courses__units {
+    flex: 0 0 auto;
+    margin-left: auto;
+    padding-right: 0.5rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.fall-courses__accordion .accordion-body {
+    padding: 1.5rem;
+}
+
+.course-learning {
+    padding: 1.5rem;
+    background-color: var(--light-bg);
+    border-left: 4px solid var(--clovis-secondary-color);
+    border-radius: 0.25rem;
+}
+
+.course-learning__title {
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+    font-weight: 700;
+}
+
+.course-learning__list {
+    margin-bottom: 0;
+    padding-left: 1.25rem;
+}
+
+.course-learning__list li + li {
+    margin-top: 0.55rem;
+}
+
+.course-outcome {
+    margin-top: 1.25rem;
+    padding: 1rem 1.25rem;
+    background-color: #fff;
+    border: 1px solid #d9e0e5;
+    border-left: 4px solid var(--clovis-primary-color);
+    border-radius: 0.25rem;
+}
+
+.course-outcome__label {
+    display: block;
+    margin-bottom: 0.25rem;
+    color: var(--clovis-primary-color);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+}
+
+.course-outcome p {
+    margin-bottom: 0;
+}
+
+@media (max-width: 767.98px) {
+    .fall-courses__accordion .accordion-button {
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 0.35rem 0.75rem;
+        padding: 1.1rem 1.25rem;
+    }
+
+    .fall-courses__code {
+        flex-basis: 100%;
+    }
+
+    .fall-courses__units {
+        margin-left: 0;
+    }
+
+    .fall-courses__accordion .accordion-body {
+        padding: 1.25rem;
+    }
+}
