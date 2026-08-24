@@ -181,7 +181,7 @@ body {
     max-width: 11ch;
     margin-bottom: 1.25rem;
     color: var(--text-dark);
-    font-size: clamp(2.5rem, 5vw, 4.75rem);
+    font-size: clamp(2.5rem, 5vw, 4.25rem);
     font-weight: 750;
     letter-spacing: -0.035em;
     line-height: 1.02;
