@@ -188,14 +188,18 @@ body {
 .site-header .navbar-brand:focus,
 .site-header .navbar-brand:focus-visible,
 .navbar-toggler:focus,
-.navbar-toggler:focus-visible {
+.navbar-toggler:focus-visible,
+.btn-close:focus,
+.btn-close:focus-visible {
     outline: 3px dashed var(--focus-dark);
     outline-offset: 3px;
 }
 
-/* Remove Bootstrap's default toggler focus shadow so the global focus indicator remains clear. */
+/* Remove Bootstrap's default component focus shadows so the global indicator remains clear. */
 .navbar-toggler:focus,
-.navbar-toggler:focus-visible {
+.navbar-toggler:focus-visible,
+.btn-close:focus,
+.btn-close:focus-visible {
     box-shadow: none;
 }
 
