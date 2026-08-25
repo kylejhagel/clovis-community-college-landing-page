@@ -73,6 +73,11 @@ The W3C Nu HTML Checker identified two issues during development of the Bootstra
 
 These findings were reviewed manually and corrected in the markup before continuing development.
 
+## Assessment Notes
+
+- **Term reference:** The supplied assessment copy includes one reference to **“SIGN UP FOR SPRING 2026”**, while the program start and course schedule consistently identify **Fall 2026**, including the statement **“FALL 2026 CLASSES START AUGUST 10.”** The landing page therefore uses **Fall 2026** consistently to preserve the repeated program and course-start information.
+- **YouTube video:** The supplied YouTube video currently refuses third-party iframe embedding in tested browsers. The page therefore uses the required YouTube URL as an accessible linked video preview rather than leaving a broken embedded player on the page.
+
 ## Brand Colors
 
 Current CSS custom properties include:
