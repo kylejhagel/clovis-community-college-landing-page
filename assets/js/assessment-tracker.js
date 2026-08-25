@@ -8,6 +8,39 @@
         return;
     }
 
+    /* Final assessment updates recorded after live-site QA. */
+    const progressUpdates = [
+        {
+            match: 'WCAG 2.1 AA final validation',
+            status: 'complete'
+        },
+        {
+            match: 'ZIP and local package test',
+            label: 'Live URL published with applicant ID',
+            status: 'complete'
+        }
+    ];
+
+    progressUpdates.forEach((update) => {
+        const item = Array.from(tracker.querySelectorAll('[data-requirement-status]')).find((candidate) => {
+            const label = candidate.querySelector('span:first-child');
+            return label?.textContent.trim() === update.match;
+        });
+
+        if (!item) {
+            return;
+        }
+
+        item.dataset.requirementStatus = update.status;
+
+        if (update.label) {
+            const label = item.querySelector('span:first-child');
+            if (label) {
+                label.textContent = update.label;
+            }
+        }
+    });
+
     const items = Array.from(tracker.querySelectorAll('[data-requirement-status]'));
     const progress = tracker.querySelector('[data-assessment-progress]');
     const progressBar = tracker.querySelector('[data-assessment-progress-bar]');
