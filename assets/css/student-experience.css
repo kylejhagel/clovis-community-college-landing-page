@@ -84,6 +84,13 @@
     font-size: 0.9rem;
 }
 
+@media (max-width: 991.98px) {
+    .student-experience__intro {
+        max-width: none;
+        width: 100%;
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     .student-experience__play-button {
         transition: none;
