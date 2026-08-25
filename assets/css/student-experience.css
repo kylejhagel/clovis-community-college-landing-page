@@ -10,21 +10,82 @@
     font-size: 1.05rem;
 }
 
-.student-experience__video {
+.student-experience__preview-link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+.student-experience__preview {
+    position: relative;
     overflow: hidden;
     background-color: #000;
     border: 1px solid #d9e0e5;
-    border-radius: 0.375rem;
-    box-shadow: 0 0.5rem 1.25rem rgb(0 0 0 / 8%);
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1.25rem rgb(0 0 0 / 10%);
 }
 
-.student-experience__video iframe {
-    border: 0;
+.student-experience__preview-image {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.student-experience__play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: inline-flex;
+    width: 4.5rem;
+    height: 4.5rem;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    background-color: rgb(2 91 148 / 90%);
+    border: 3px solid #fff;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    line-height: 1;
+    transform: translate(-50%, -50%);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.student-experience__preview-link:hover .student-experience__play-button,
+.student-experience__preview-link:focus .student-experience__play-button,
+.student-experience__preview-link:focus-visible .student-experience__play-button {
+    background-color: var(--clovis-primary-dark);
+    transform: translate(-50%, -50%) scale(1.06);
+}
+
+.student-experience__preview-link:focus,
+.student-experience__preview-link:focus-visible {
+    outline: 3px dashed var(--focus-dark);
+    outline-offset: 4px;
+    border-radius: 0.5rem;
+}
+
+.student-experience__watch-link {
+    display: inline-block;
+    margin-top: 1rem;
+    color: var(--clovis-primary-color);
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+}
+
+.student-experience__preview-link:hover .student-experience__watch-link {
+    color: var(--clovis-primary-dark);
 }
 
 .student-experience__note {
-    margin-top: 0.75rem;
+    margin-top: 0.5rem;
     margin-bottom: 0;
     color: var(--text-muted);
     font-size: 0.9rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .student-experience__play-button {
+        transition: none;
+    }
 }
