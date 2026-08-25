@@ -45,13 +45,14 @@
     line-height: 1.7;
 }
 
-.site-footer a {
+/* Footer text links. Keep CTA button colors scoped to the CTA component. */
+.site-footer a:not(.site-footer__cta) {
     color: #fff;
     text-decoration-thickness: 1px;
     text-underline-offset: 0.2em;
 }
 
-.site-footer a:hover {
+.site-footer a:not(.site-footer__cta):hover {
     color: var(--link-hover-light-color);
 }
 
@@ -124,6 +125,12 @@
     outline: 3px dashed var(--focus-light);
     outline-offset: 3px;
     box-shadow: none;
+}
+
+@media (min-width: 992px) {
+    .site-footer__locations {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 }
 
 @media (max-width: 767.98px) {
