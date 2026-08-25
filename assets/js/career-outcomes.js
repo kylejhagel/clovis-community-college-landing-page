@@ -1,4 +1,17 @@
 (() => {
+    const programLinks = document.querySelectorAll('a[href="#programs"]');
+    const programSection = document.getElementById('fall-2026-courses');
+
+    if (programSection) {
+        programLinks.forEach((link) => {
+            link.addEventListener('click', (event) => {
+                event.preventDefault();
+                programSection.scrollIntoView();
+                history.replaceState(null, '', '#fall-2026-courses');
+            });
+        });
+    }
+
     const toastElement = document.getElementById('careerInfoToast');
     const careerButtons = document.querySelectorAll('.career-card__learn-more');
 
