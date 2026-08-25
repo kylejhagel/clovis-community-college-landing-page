@@ -1,106 +1,98 @@
 # Clovis Community College Landing Page
 
-Landing page exercise for the Clovis Community College Web Content Engineer assessment.
+Responsive landing page created for the Clovis Community College Web Content Engineer competency assessment. The page introduces the **Mechatronics Industrial Automation** program, presents the Fall 2026 course offering and career information, and provides clear paths for prospective students to apply.
 
-## Current Feature Scope
+## Technical Approach
 
-This branch contains the initial page foundation and header/navigation work only.
+The project is intentionally static and browser-based so it can be opened directly from `index.html` without a development server, build process, compiler, or server-side rendering.
 
-Included in this iteration:
+- HTML5
+- CSS
+- JavaScript
+- Bootstrap 5.3.3 loaded from a CDN
+- Local image, CSS, and JavaScript assets
 
-- Bootstrap 5.3.3 CSS and JavaScript bundle
-- Semantic `header`, `nav`, and `main` landmarks
-- Skip-to-main-content link
-- Responsive Clovis Community College logo treatment
-- Desktop audience navigation
-- Primary navigation
-- Responsive Bootstrap offcanvas navigation for mobile
-- Visible keyboard focus styles
-- Reduced-motion support for animated transitions
+Core content remains available without custom JavaScript. JavaScript is used only for progressive interaction such as the career-information toast and development-only assessment tracker.
 
-The hero, content sections, footer, and additional landing-page components are intentionally deferred to later iterations.
+## Page Features
 
-## Responsive Logo Behavior
+The current implementation includes:
 
-The header uses a native HTML `<picture>` element so the appropriate Clovis Community College logo is selected by the browser without JavaScript.
-
-- Desktop/tablet: `assets/images/ccc-one-line-full-color.png`
-- Mobile below 768px: `assets/images/ccc-primary-full-color.png`
-
-Logo images maintain their intrinsic aspect ratio using `height: auto`.
+- Responsive Clovis Community College header and navigation
+- Accessible Bootstrap offcanvas navigation on smaller screens
+- Mechatronics Industrial Automation hero with prominent **Apply Today** CTA
+- Program overview and credential information
+- Career opportunities section
+- Fall 2026 course accordion with course descriptions and learning outcomes
+- OSHA 10-hour course-completion outcome for IT 10
+- Student Experience section using the supplied YouTube resource
+- Clovis Community College campus contact information
+- Program-specific footer navigation and final Apply CTA
+- Terms & Privacy, Accessibility, and Contact Webmaster links
+- Responsive layouts for desktop, tablet, and mobile
 
 ## Accessibility
 
-Accessibility is being treated as part of the initial structure rather than as a final remediation step.
+Accessibility has been treated as part of the implementation rather than as a final remediation step.
 
 Current accessibility considerations include:
 
-- A visible-on-focus **Skip to main content** link
-- Semantic page landmarks
-- Keyboard-focus indicators with strong foreground/background contrast
-- A distinct focus state for links placed on the Clovis blue navigation background
+- One visible page-level `h1`
+- Semantic `header`, `nav`, `main`, `section`, `address`, and `footer` landmarks/elements
+- Logical heading hierarchy
+- Visible-on-focus **Skip to main content** link
+- Skip link targets the visible page title (`#page-title`) and moves programmatic focus there
+- Strong visible keyboard-focus indicators
+- Light focus treatment on dark Clovis-blue header and footer backgrounds
 - Keyboard-accessible Bootstrap offcanvas navigation
-- Accessible menu open/close controls and labels
-- `prefers-reduced-motion` support for skip-link and logo transitions
-- A focusable `main` landmark so skip-link navigation moves keyboard focus to the page content
-- Meaningful alternative text for the Clovis Community College logo
-- A logical heading hierarchy with one page-level `h1`
-
-The skip link targets:
-
-```html
-<main id="main-content" tabindex="-1">
-```
-
-Focus styles are intentionally not removed from the main content target.
+- Accessible menu open/close labels
+- Meaningful image alternative text
+- Contextual accessible names for repeated career **Learn More** controls
+- Accessible external-resource cues
+- Reduced-motion support where transitions are used
+- Responsive reflow without requiring horizontal scrolling for primary content
 
 ### Accessibility Validation and QA
 
-Accessibility and markup are reviewed with both automated tools and manual testing rather than relying on a single scanner.
-
-Current QA workflow:
+The final QA workflow includes both automated and manual review:
 
 - **W3C Nu HTML Checker** — HTML and ARIA conformance: https://validator.w3.org/nu/#file
-- **WAVE** — accessibility errors, alerts, structure, and contrast review
-- **Lighthouse** — accessibility and general page-quality checks
-- **Manual keyboard testing** — skip link, focus order, navigation, offcanvas open/close, Escape behavior, and visible focus
-- **Responsive review** — check reflow and navigation behavior at small mobile, tablet, and desktop widths
+- **WAVE** — accessibility errors, alerts, document structure, and contrast review
+- **Lighthouse** — accessibility and general page-quality review
+- **Manual keyboard testing** — skip link, focus order, navigation, accordion, toast controls, footer links, and visible focus
+- **Responsive review** — small mobile, tablet, laptop, and desktop widths
 
-The W3C Nu HTML Checker identified two issues during development of the Bootstrap offcanvas navigation:
+During development, the W3C Nu HTML Checker identified an invalid `aria-labelledby` relationship on the Bootstrap offcanvas wrapper. The wrapper was changed from a generic `div` to a semantic `nav`, which supports the accessible label relationship and better describes the region.
 
-1. `aria-labelledby` had been applied to a generic `<div>` whose computed role did not permit that ARIA attribute. The offcanvas wrapper was changed to a semantic `<nav>` landmark, making the accessible label relationship valid and better describing the region's purpose.
-2. The document contained lower-level headings but no computed level-one heading. A page-level `h1` was added for **Mechatronics Industrial Automation**. The temporary hidden heading will be replaced by the visible hero heading when that section is implemented.
+## Assessment Notes
 
-These findings were reviewed manually and corrected in the markup before continuing development.
+- **Term reference:** The supplied assessment copy includes one reference to **“SIGN UP FOR SPRING 2026”**, while the program start and course schedule consistently identify **Fall 2026**, including **“FALL 2026 CLASSES START AUGUST 10.”** The landing page therefore uses **Fall 2026** consistently.
+- **YouTube video:** The supplied YouTube video refuses third-party iframe embedding in tested browsers. Rather than leave a broken embedded player, the page uses the required YouTube URL as an accessible linked video preview that opens the supplied video on YouTube.
 
-## Brand Colors
+## Brand and Focus Colors
 
-Current CSS custom properties include:
+Key CSS custom properties include:
 
 ```css
 --clovis-primary-color: #025b94;
+--clovis-primary-dark: #01466f;
 --clovis-secondary-color: #95c23d;
 --light-bg: #f8f9fa;
+--hero-bg: #eef4f7;
 --text-dark: #212529;
 --text-muted: #464b50;
 --link-hover-light-color: #cee8ff;
---focus-on-light: #be4e04;
---focus-on-dark: #f9d8c8;
+--focus-dark: #be4e04;
+--focus-light: #f9d8c8;
 ```
 
-## Local Development
+## Local Use
 
-No build process is currently required. The page can be opened directly in a browser or served with a simple local development server.
+No installation or build step is required.
 
-To work on this feature branch:
-
-```bash
-git fetch origin
-git switch feature/bootstrap-header-nav
-git pull origin feature/bootstrap-header-nav
-```
-
-Then open `index.html` locally.
+1. Download or unzip the project.
+2. Open `index.html` directly in a modern browser.
+3. An internet connection is required for the Bootstrap CDN and external links/resources.
 
 ## Project Structure
 
@@ -109,20 +101,44 @@ clovis-community-college-landing-page/
 ├── index.html
 ├── assets/
 │   ├── css/
-│   │   └── main.css
-│   └── images/
-│       ├── ccc-one-line-full-color.png
-│       └── ccc-primary-full-color.png
+│   │   ├── main.css
+│   │   ├── fall-2026-courses.css
+│   │   ├── student-experience.css
+│   │   ├── site-footer.css
+│   │   └── assessment-tracker.css
+│   ├── images/
+│   │   └── ...
+│   └── js/
+│       ├── career-outcomes.js
+│       └── assessment-tracker.js
 ├── README.md
 └── LICENSE
 ```
 
+## Development-Only Assessment Tracker
+
+The page currently contains a development-only assessment tracker used to monitor completion of the competency requirements. It is intentionally isolated from production styles and behavior.
+
+Before final submission, remove:
+
+- the assessment tracker section in `index.html`
+- `assets/css/assessment-tracker.css`
+- `assets/js/assessment-tracker.js`
+- their corresponding stylesheet/script references
+
+Useful search terms before packaging:
+
+```text
+assessment-tracker
+data-development-only
+DEVELOPMENT ONLY
+```
+
 ## Development Approach
 
-The implementation is intentionally assessment-focused:
-
 - Use Bootstrap components and utilities where they solve the requirement cleanly.
-- Keep custom CSS limited to branding, accessibility, and presentation needs not already handled by Bootstrap.
-- Avoid adding navigation, content, or interaction that is not supported by the assessment requirements.
-- Keep the HTML semantic and understandable without relying on JavaScript for core content.
-- Validate HTML and ARIA during development instead of waiting until final QA.
+- Keep custom CSS focused on branding, layout, accessibility, and component-specific presentation.
+- Preserve semantic HTML and understandable document structure.
+- Keep essential program content available without relying on JavaScript.
+- Validate HTML, accessibility, keyboard behavior, and responsive layouts throughout development.
+- Avoid unnecessary dependencies or technology that prevents the assessment from running directly in the browser.
